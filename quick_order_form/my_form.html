@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <section class = "form_section">
+    <form id="order_form" method="get">
+      <fieldset>
+        <div class ="name"><strong>이름</strong></div>
+          <input type = "text" required minlength="2">
+        <div class ="userid"><strong>아이디</strong></div>
+          <input type = "text" placeholder="4~12자 사이 영문 숫자 조합" required minlength="4" require maxlength="12">
+        <div class ="useremail"><strong>이메일</strong></div>
+          <input type = "email">
+        <div class ="phone"><strong>연락처(-빼고입력해주세요)</strong></div>
+          <input type = "text" placeholder="ex) 01012345678">
+        <div class ="psw"><strong>패스워드</strong></div>
+          <input type = "text" placeholder="4~12자 사이 영문 숫자 조합">
+        <div class ="psw_check"><strong>패스워드확인</strong></div>
+          <input type = "text" placeholder="비밀번호 확인">
+        <div class ="product_type">제품 타입</div>
+          <input type = "textarea">
+        <div class ="product_amount">주문 수량</div>
+          <input type = "textarea">
+        <div class ="assignment">약관 동의</div>
+          <input type = "textarea">
+        <br>
+        <button class = "edition"><a href = "https://www.google.com">에디션 상세</a></button>
+        <button type= "submit">제출하기</button>
+      </fieldset>
+    </form>
+  </section>
+
+  <script src="form_js.js"></script>
+</body>
+</html>
