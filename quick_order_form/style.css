@@ -10,3 +10,11 @@ input[type="text"], input[type="email"] {
 .name, .userid, .useremail, .phone, .psw, .psw_check {
   font-size: 16px;
 }
+
+.product_type {
+  text-align: center;
+}
+
+.product_amount {
+  text-align: center;
+}

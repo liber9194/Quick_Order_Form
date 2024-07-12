@@ -10,31 +10,165 @@
   <section class = "form_section">
     <form id="order_form" method="get">
       <fieldset>
-        <div class ="name"><strong>이름</strong></div>
-          <input type = "text" required minlength="2">
-        <div class ="userid"><strong>아이디</strong></div>
-          <input type = "text" placeholder="4~12자 사이 영문 숫자 조합" required minlength="4" require maxlength="12">
-        <div class ="useremail"><strong>이메일</strong></div>
-          <input type = "email">
-        <div class ="phone"><strong>연락처(-빼고입력해주세요)</strong></div>
-          <input type = "text" placeholder="ex) 01012345678">
-        <div class ="psw"><strong>패스워드</strong></div>
-          <input type = "text" placeholder="4~12자 사이 영문 숫자 조합">
-        <div class ="psw_check"><strong>패스워드확인</strong></div>
-          <input type = "text" placeholder="비밀번호 확인">
-        <div class ="product_type">제품 타입</div>
-          <input type = "textarea">
-        <div class ="product_amount">주문 수량</div>
-          <input type = "textarea">
-        <div class ="assignment">약관 동의</div>
-          <input type = "textarea">
+        <p><strong>이름</strong></p>
+          <input type = "text" name = "username" id = "username" required minlength="2">
+        <p><strong>아이디</strong></p>
+          <input type = "text" placeholder="4~12자 사이 영문 숫자 조합" name = "userid" id = "userid" required minlength="4" require maxlength="12">
+        <p><strong>이메일</strong></p>
+          <input type = "email" name = "useremail" id = "useremail">
+        <p><strong>연락처(-빼고입력해주세요)</strong></p>
+          <input type = "text" placeholder="ex) 01012345678" name = "phone" id = "phone">
+        <p><strong>패스워드</strong></p>
+          <input type = "text" placeholder="4~12자 사이 영문 숫자 조합" name = "password" id = "passwod" style="width: 200px;">
+        <p><strong>패스워드확인</strong></p>
+          <input type = "text" placeholder="비밀번호 확인" name = "password_check" id = "password_check" style="width: 200px;">
+        
+        <fieldset class="product_type">
+          <legend>제품 타입</legend>
+          Starter <input type="radio" name="edition" value="starter">
+          Professional <input type="radio" name="edition" value="pro"><br>
+          Enterprise <input type="radio" name="edition" value="enterprise">
+          Student <input type="radio" name="edition" value="student">
+        </fieldset>
+          
+        <fieldset class="product_amount">
+          <legend>주문 수량</legend>
+          <select name = "product_amount" id= "amount" name = "amount">
+            <option>선택</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+          <input type="text" id="amount" name = "amount" placeholder="직접 작성">
+          <br>
+          <strong style="font-size : 12px;">10개 이상인 경우 수량을 직접 입력 후 제출하시면</strong>
+          <br>
+          <strong style="font-size : 12px;">영업팀이 빠른 시일 내에 연락 드립니다.</strong>
+        </fieldset>
+
+        <fieldset class="assignment_okay">
+          <legend style="text-align: center;">약관 동의</legend>
+          <input type="checkbox" name="mandantory_assignment" id = "col_assignment" value="sensitive" style="text-align: left;">개인정보 수집 및 이용 동의(필수)<br>
+          <input type="checkbox" name="mandantory_assignment" id = "service_assignment" value="service" style="text-align: left;">서비스 이용 약관 동의(필수)<br>
+          <input type="checkbox" name="assignment" value="email_ad" style="text-align: left;">E-mail 광고성 정보 수신 동의(선택)
+        </fieldset>
+
         <br>
         <button class = "edition"><a href = "https://www.google.com">에디션 상세</a></button>
-        <button type= "submit">제출하기</button>
+        <button type= "submit" onclick="return validateForm()">제출하기</button>
       </fieldset>
     </form>
   </section>
 
-  <script src="form_js.js"></script>
+  <script type="text/javascript">
+    function validateForm()
+    {
+      //var form = document.order_form;
+      
+
+      if(typeof str === "string" && str.length === 0)
+      {
+        alert("이름을 입력해주세요.");
+        return;
+      }
+
+      /*
+      for(i = 0; i < form.length; ++i)
+      {
+          var ch = form.charAt(i);
+
+          if((ch.keycode >= 12591 || event.keycode <= 12687))
+          {
+            alert("유효하지 않은 이름입니다.");
+            form.select();
+            return;
+          }
+      }
+
+      if(document.userid == "")
+      {
+        alert("아이디를 입력해주세요");
+        return;
+      }*/
+
+      if($('input[name=edition]:checked').length = 0)
+      {
+        alert("제품을 선택해주세요");
+        return false;
+      }
+
+      if(!(document.getElementById('col_assignmnet').checked && (document.getElementById('service_assignment').checked)))
+      {
+        alert("필수 약관에 동의해주세요");
+        return false;
+      }
+      /*
+      alert("정상적으로 신청되었습니다.");
+      setTimeout(function() {
+        window.location.href = 'https://www.salesforce.org/education/solutions/collaboration-tools/';
+      }, 2000);*/
+    }
+
+    function userid_valid_alert ()
+    {
+      alert("아이디는 4~12자의 대소문자 영문과 숫자 조합만 가능합니다.");
+    }
+
+    function email_blank_alert ()
+    {
+      alert("이메일을 입력해주세요.");
+    }
+
+    function email_valid_alert ()
+    {
+      alert("유효하지 않은 이메일 형식입니다.");
+    }
+
+    function phone_blank_alert ()
+    {
+      alert("연락처를 입력해주세요.");
+    }
+
+    function phone_valid_alert ()
+    {
+      alert("연락처를 입력해주세요.");
+    }
+
+    function psw_blank_alert ()
+    {
+      alert("비밀번호를 입력해주세요.");
+    }
+
+    function psw_check_valid_alert ()
+    {
+      alert("비밀번호가 일치하지 않습니다.");
+    }
+
+    function psw_valid_alert ()
+    {
+      alert("비밀번호는 4~12자의 대소문자 영문과 숫자 조합만 가능합니다.");
+    }
+
+    function psw_diff_alert ()
+    {
+      alert("비밀번호가 일치하지 않습니다.");
+    }
+
+    function edition_valid_alert ()
+    {
+      alert("제품을 선택해주세요.");
+    }
+
+    function amount_valid_alert()
+    {
+      alert("수량을 입력해주세요");
+    }
+  </script>
 </body>
 </html>
