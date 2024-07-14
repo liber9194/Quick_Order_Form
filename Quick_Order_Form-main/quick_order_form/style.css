@@ -1,0 +1,45 @@
+.form_section {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.form_section fieldset {
+  border-radius: 10px;
+  width: 300px;
+}
+
+input[type="text"], input[type="email"] {
+  width: 250px;
+}
+
+.name, .userid, .useremail, .phone, .psw, .psw_check {
+  font-size: 16px;
+}
+
+.product_type {
+  text-align: center;
+}
+
+.product_amount {
+  text-align: center;
+}
+
+input[name='input_amount'] {
+  width: 70px;
+}
+
+.amount_first {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.amount_second {
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: -55px;
+}
+
+.buttons {
+  text-align: center;
+}
